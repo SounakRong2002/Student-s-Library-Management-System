@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Library Management</title>
+  </head>
+  <body>
+    <div style="font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; padding: 24px;">
+      <h1>Student Library Management</h1>
+      <p>
+        This deployment target is configured for a Vercel/Netlify serverless function.
+        The Streamlit UI (<code>app.py</code>) must run separately using <code>streamlit run app.py</code>.
+      </p>
+      <p>Health check: <code id="out">loading...</code></p>
+    </div>
+
+    <script>
+      fetch('/api')
+        .then(r => r.json())
+        .then(j => { document.getElementById('out').textContent = JSON.stringify(j); })
+        .catch(e => { document.getElementById('out').textContent = String(e); });
+    </script>
+  </body>
+</html>
+
